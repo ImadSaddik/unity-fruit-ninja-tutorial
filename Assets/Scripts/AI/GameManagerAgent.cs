@@ -60,6 +60,8 @@ public class GameManagerAgent : MonoBehaviour
     public void Explode()
     {
         spawner.enabled = false;
+        blade.AddReward(-1f);
+        blade.EndEpisode();
 
         StartCoroutine(ExplodeSequence());
     }
@@ -109,8 +111,6 @@ public class GameManagerAgent : MonoBehaviour
         if (lives <= 0)
         {
             Explode();
-            blade.AddReward(-1f);
-            blade.EndEpisode();
         }
 
         this.lives = lives;

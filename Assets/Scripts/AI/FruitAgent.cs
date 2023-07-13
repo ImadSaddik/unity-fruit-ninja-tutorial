@@ -49,6 +49,7 @@ public class FruitAgent : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             BladeAgent blade = other.GetComponent<BladeAgent>();
+            blade.AddReward(0.1f);
             Slice(blade.direction, blade.transform.position, blade.sliceForce);
         } 
         else if (other.CompareTag("MissedFruitCollider"))
